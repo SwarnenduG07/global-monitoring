@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Turborepo Tailwind CSS starter
 
 This Turborepo starter is maintained by the Turborepo core team.
@@ -94,5 +94,4 @@ Contributions are welcome! Please open issues or submit pull requests for improv
 
 ## License
 
-This project is licensed under the MIT License.
->>>>>>> 7a0bb3e38fe296fe29450455723ac2c7d01f4440
+This project is licensed under the MIT 
