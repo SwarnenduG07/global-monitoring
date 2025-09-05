@@ -33,31 +33,11 @@ const METRICS_DATA = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-      {/* Ultra Aesthetic Animated Background */}
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Main floating orbs */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/30 to-indigo-400/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        
-        {/* Additional floating elements */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-2xl animate-bounce" style={{animationDelay: '3s', animationDuration: '4s'}}></div>
-        <div className="absolute bottom-32 right-32 w-24 h-24 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-2xl animate-bounce" style={{animationDelay: '1.5s', animationDuration: '3s'}}></div>
-        <div className="absolute top-1/3 right-20 w-16 h-16 bg-gradient-to-br from-rose-400/20 to-pink-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '2.5s', animationDuration: '5s'}}></div>
-        
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `
-            linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }}></div>
-        
-        {/* Animated particles */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-indigo-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping" style={{animationDelay: '3s'}}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
       {/* Ultra Modern Transparent Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5 transition-all duration-300">
@@ -175,53 +155,41 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Ultra Aesthetic Floating Stats Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto relative">
-              {/* Magical connecting lines */}
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-300/30 to-transparent hidden lg:block"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-transparent via-purple-300/30 to-transparent hidden lg:block"></div>
+            {/* Enhanced Floating Stats Cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto relative">
+              {/* Connecting lines */}
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-300/50 to-transparent hidden lg:block"></div>
               
-              <div className="group bg-gradient-to-br from-white/80 to-indigo-50/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl shadow-indigo-500/10 hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-700 hover:scale-110 hover:-translate-y-2 relative overflow-hidden">
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-indigo-400/30 to-purple-400/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-xl"></div>
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 group-hover:scale-125 transition-transform duration-500">99.9%</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-indigo-700 transition-colors duration-300">Uptime SLA</div>
-                  <div className="absolute -bottom-3 -right-3 text-7xl opacity-5 group-hover:opacity-15 transition-opacity duration-500 group-hover:rotate-12">⚡</div>
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                  <div className="text-4xl font-bold text-indigo-600 mb-3 group-hover:scale-110 transition-transform duration-300">99.9%</div>
+                  <div className="text-sm text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">Uptime SLA</div>
+                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">⚡</div>
                 </div>
               </div>
-              
-              <div className="group bg-gradient-to-br from-white/80 to-purple-50/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl shadow-purple-500/10 hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-700 hover:scale-110 hover:-translate-y-2 relative overflow-hidden">
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-pink-400/20 to-rose-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-xl"></div>
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3 group-hover:scale-125 transition-transform duration-500">&lt;50ms</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-purple-700 transition-colors duration-300">Response Time</div>
-                  <div className="absolute -bottom-3 -right-3 text-7xl opacity-5 group-hover:opacity-15 transition-opacity duration-500 group-hover:rotate-12">🚀</div>
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-purple-400 rounded-full animate-pulse shadow-lg shadow-purple-400/50"></div>
+                  <div className="text-4xl font-bold text-purple-600 mb-3 group-hover:scale-110 transition-transform duration-300">&lt;50ms</div>
+                  <div className="text-sm text-gray-600 font-medium group-hover:text-purple-600 transition-colors">Response Time</div>
+                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🚀</div>
                 </div>
               </div>
-              
-              <div className="group bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-700 hover:scale-110 hover:-translate-y-2 relative overflow-hidden">
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-cyan-400/20 to-teal-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-xl"></div>
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3 group-hover:scale-125 transition-transform duration-500">24/7</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-blue-700 transition-colors duration-300">Monitoring</div>
-                  <div className="absolute -bottom-3 -right-3 text-7xl opacity-5 group-hover:opacity-15 transition-opacity duration-500 group-hover:rotate-12">🔍</div>
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-blue-400 rounded-full animate-pulse shadow-lg shadow-blue-400/50"></div>
+                  <div className="text-4xl font-bold text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
+                  <div className="text-sm text-gray-600 font-medium group-hover:text-blue-600 transition-colors">Monitoring</div>
+                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🔍</div>
                 </div>
               </div>
-              
-              <div className="group bg-gradient-to-br from-white/80 to-green-50/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl shadow-green-500/10 hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-700 hover:scale-110 hover:-translate-y-2 relative overflow-hidden">
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full blur-xl"></div>
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-3 group-hover:scale-125 transition-transform duration-500">1M+</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-green-700 transition-colors duration-300">Metrics/sec</div>
-                  <div className="absolute -bottom-3 -right-3 text-7xl opacity-5 group-hover:opacity-15 transition-opacity duration-500 group-hover:rotate-12">📊</div>
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                  <div className="text-4xl font-bold text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300">1M+</div>
+                  <div className="text-sm text-gray-600 font-medium group-hover:text-green-600 transition-colors">Metrics/sec</div>
+                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">📊</div>
                 </div>
               </div>
             </div>
@@ -229,28 +197,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ultra Aesthetic Features Section */}
-      <section id="features" className="relative py-24 bg-gradient-to-br from-white/60 to-slate-50/60 backdrop-blur-sm overflow-hidden">
-        {/* Aesthetic Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200/50 rounded-full px-6 py-3 mb-8 shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-300 group">
-              <div className="w-2 h-2 bg-indigo-500 rounded-full mr-3 animate-pulse shadow-lg shadow-indigo-500/50"></div>
-              <span className="text-sm font-semibold text-indigo-700 group-hover:text-indigo-800 transition-colors">Premium Features</span>
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-white/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200/50 rounded-full px-4 py-2 mb-6">
+              <span className="text-sm font-semibold text-indigo-700">Premium Features</span>
             </div>
-            <h2 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              <span className="inline-block bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent hover:from-gray-700 hover:to-gray-500 transition-all duration-500 transform hover:scale-105">Comprehensive</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Comprehensive Monitoring</span>
               <br />
-              <span className="inline-block bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent hover:from-indigo-500 hover:via-purple-500 hover:to-blue-500 transition-all duration-500 transform hover:scale-105 animate-pulse">Monitoring Suite</span>
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Suite</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Everything you need to keep your systems healthy and performing optimally with enterprise-grade monitoring capabilities that scale.
+              Everything you need to keep your systems healthy and performing optimally with enterprise-grade monitoring capabilities.
             </p>
           </div>
 
