@@ -75,11 +75,11 @@ export default function Home() {
                 <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               </a>
               <div className="w-px h-6 bg-gradient-to-b from-transparent via-gray-300 to-transparent mx-2"></div>
-              <button className="relative px-3 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
+              <a href="/signin" className="relative px-3 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
                 <span className="relative z-10">Sign In</span>
                 <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-              </button>
-              <button className="relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/40 group overflow-hidden">
+              </a>
+              <a href="/signup" className="relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/40 group overflow-hidden">
                 <span className="relative z-10 flex items-center">
                   Start Monitoring
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,7 +87,7 @@ export default function Home() {
                   </svg>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -134,7 +134,7 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <button className="group relative bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-xl shadow-indigo-500/30 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-indigo-500/50 min-w-[220px] overflow-hidden">
+              <a href="/signup" className="group relative bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-xl shadow-indigo-500/30 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-indigo-500/50 min-w-[220px] overflow-hidden">
                 <span className="relative z-10 flex items-center justify-center">
                   Start Free Trial
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,8 +143,8 @@ export default function Home() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 via-purple-700 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              </button>
-              <button className="group relative bg-white/90 backdrop-blur-sm text-gray-800 px-10 py-5 rounded-2xl font-semibold text-lg border border-gray-200/50 shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-xl hover:bg-white min-w-[220px] overflow-hidden">
+              </a>
+              <a href="/dashboard" className="group relative bg-white/90 backdrop-blur-sm text-gray-800 px-10 py-5 rounded-2xl font-semibold text-lg border border-gray-200/50 shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-xl hover:bg-white min-w-[220px] overflow-hidden">
                 <span className="relative z-10 flex items-center justify-center group-hover:text-indigo-600 transition-colors">
                   <svg className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -152,7 +152,7 @@ export default function Home() {
                   View Live Demo
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              </a>
             </div>
 
             {/* Enhanced Floating Stats Cards */}
@@ -348,12 +348,12 @@ export default function Home() {
             Join thousands of organizations that trust GlobalMonitor for their infrastructure monitoring needs. Start your free trial today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-gray-900 px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+            <a href="/signup" className="bg-white text-gray-900 px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-center">
               Start Free Trial
-            </button>
-            <button className="border-2 border-white text-white px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105">
+            </a>
+            <a href="/contact" className="border-2 border-white text-white px-10 py-4 rounded-2xl text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105 text-center">
               Contact Sales
-            </button>
+            </a>
           </div>
         </div>
       </section>
