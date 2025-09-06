@@ -15,6 +15,7 @@ import {
   YAxis, 
   CartesianGrid, 
   Tooltip, 
+  Legend, 
   ResponsiveContainer 
 } from 'recharts'
 import { 
@@ -24,13 +25,21 @@ import {
   MemoryStick, 
   Network, 
   Server, 
+  Zap, 
   TrendingUp, 
+  TrendingDown, 
   AlertTriangle,
-  CheckCircle
+  CheckCircle,
+  Clock,
+  Users,
+  Eye,
+  Shield,
+  Wifi,
+  Database
 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../components/ui/card"
 
-// Clean data for professional dashboard
+// Enhanced mock data
 const cpuData = [
   { time: '00:00', usage: 45 },
   { time: '04:00', usage: 32 },
@@ -52,192 +61,254 @@ const memoryData = [
 ]
 
 const networkData = [
-  { time: '00:00', inbound: 120, outbound: 80 },
-  { time: '04:00', inbound: 90, outbound: 60 },
-  { time: '08:00', inbound: 280, outbound: 180 },
-  { time: '12:00', inbound: 450, outbound: 320 },
-  { time: '16:00', inbound: 380, outbound: 280 },
-  { time: '20:00', inbound: 220, outbound: 160 },
-  { time: '24:00', inbound: 150, outbound: 100 },
+  { time: '00:00', inbound: 450, outbound: 320 },
+  { time: '06:00', inbound: 280, outbound: 180 },
+  { time: '12:00', inbound: 890, outbound: 650 },
+  { time: '18:00', inbound: 1200, outbound: 980 },
+  { time: '24:00', inbound: 560, outbound: 420 },
 ]
 
 const systemHealthData = [
-  { name: 'Healthy', value: 85, color: '#059669' },
-  { name: 'Warning', value: 12, color: '#d97706' },
-  { name: 'Critical', value: 3, color: '#dc2626' },
+  { name: 'Healthy', value: 85, color: '#10b981' },
+  { name: 'Warning', value: 12, color: '#f59e0b' },
+  { name: 'Critical', value: 3, color: '#ef4444' }
 ]
 
 const diskUsageData = [
-  { name: 'System', used: 45, total: 100 },
-  { name: 'Applications', used: 78, total: 150 },
-  { name: 'Data', used: 230, total: 500 },
-  { name: 'Logs', used: 12, total: 50 },
+  { name: 'System (C:)', used: 45, total: 100, color: '#3b82f6' },
+  { name: 'Data (D:)', used: 120, total: 500, color: '#10b981' },
+  { name: 'Backup (E:)', used: 80, total: 200, color: '#f59e0b' },
 ]
 
 export default function Dashboard() {
-  const [metrics, setMetrics] = useState({
+  const [realTimeData, setRealTimeData] = useState({
     cpu: 73.2,
     memory: 68.5,
     network: 1240,
     activeConnections: 1247,
-    uptime: '99.98%',
-    alerts: 3
+    uptime: "99.99%",
+    alerts: 2
   })
 
-  // Subtle real-time updates without excessive animation
   useEffect(() => {
     const interval = setInterval(() => {
-      setMetrics(prev => ({
+      setRealTimeData(prev => ({
         ...prev,
-        cpu: Math.random() * 30 + 50,
-        memory: Math.random() * 20 + 60,
-        network: Math.random() * 500 + 800,
+        cpu: Math.random() * 30 + 50, // 50-80%
+        memory: Math.random() * 20 + 60, // 60-80%
+        network: Math.random() * 500 + 800, // 800-1300 Mbps
         activeConnections: Math.floor(Math.random() * 200 + 1200),
       }))
-    }, 5000) // Slower updates for professional feel
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      {/* Clean Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-semibold text-gray-900 mb-1">
-              System Monitoring Dashboard
-            </h1>
-            <p className="text-gray-600">Infrastructure performance overview</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50/50 to-blue-50/30 p-6 space-y-8">
+      {/* Premium Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <div className="relative group">
+            <div className="w-14 h-14 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 rounded-2xl flex items-center justify-center shadow-2xl shadow-slate-900/25 group-hover:shadow-slate-900/40 transition-all duration-300">
+              <Activity className="h-7 w-7 text-white" />
+            </div>
+            <div className="absolute -top-1 -right-1 w-5 h-5 bg-emerald-400 rounded-full border-2 border-white shadow-lg">
+              <div className="w-full h-full bg-emerald-400 rounded-full animate-ping"></div>
+            </div>
           </div>
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center text-green-700 bg-green-50 px-3 py-1.5 rounded-md border border-green-200">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              <span className="text-sm font-medium">All Systems Normal</span>
+          <div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+              System Monitor
+            </h1>
+            <p className="text-slate-600 text-lg flex items-center mt-1">
+              <Eye className="h-4 w-4 mr-2" />
+              Infrastructure Analytics Dashboard
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-center space-x-6">
+          <div className="flex items-center bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200/60 text-emerald-800 px-6 py-3 rounded-2xl shadow-lg backdrop-blur-sm">
+            <CheckCircle className="h-5 w-5 mr-2" />
+            <span className="font-semibold">All Systems Healthy</span>
+          </div>
+          
+          <div className="text-right bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl border border-slate-200/60 shadow-lg">
+            <div className="text-sm text-slate-500 flex items-center justify-end">
+              <Clock className="h-4 w-4 mr-1" />
+              Last Updated
             </div>
-            <div className="text-right">
-              <div className="text-xs text-gray-500 uppercase tracking-wide">Last Updated</div>
-              <div className="text-sm font-medium text-gray-900">{new Date().toLocaleTimeString()}</div>
-            </div>
+            <div className="font-semibold text-slate-900">{new Date().toLocaleTimeString()}</div>
           </div>
         </div>
       </div>
 
-      {/* Key Metrics - Clean Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {/* CPU Usage */}
-        <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-600">CPU Usage</CardTitle>
-            <Cpu className="h-4 w-4 text-gray-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-semibold text-gray-900 mb-2">
-              {metrics.cpu.toFixed(1)}%
+      {/* Premium Metrics Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* CPU Card */}
+        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+            <CardTitle className="text-sm font-semibold text-slate-700">CPU Usage</CardTitle>
+            <div className="p-3 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <Cpu className="h-5 w-5 text-blue-700" />
             </div>
-            <div className="w-full bg-gray-200 rounded-sm h-2">
+          </CardHeader>
+          <CardContent className="relative z-10">
+            <div className="text-3xl font-bold text-blue-700 mb-4">
+              {realTimeData.cpu.toFixed(1)}%
+            </div>
+            <div className="w-full bg-slate-200/70 rounded-full h-2.5 mb-4 overflow-hidden">
               <div 
-                className="bg-gray-800 h-2 rounded-sm transition-all duration-300"
-                style={{ width: `${metrics.cpu}%` }}
+                className="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out shadow-sm"
+                style={{ width: `${realTimeData.cpu}%` }}
               />
             </div>
-            <p className="text-xs text-gray-500 mt-2">4 cores active</p>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-600 flex items-center">
+                <TrendingUp className="h-3 w-3 mr-1 text-emerald-600" />
+                4 cores
+              </span>
+              <span className="text-slate-500 font-medium">Active</span>
+            </div>
           </CardContent>
         </Card>
 
-        {/* Memory Usage */}
-        <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-600">Memory</CardTitle>
-            <MemoryStick className="h-4 w-4 text-gray-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-semibold text-gray-900 mb-2">
-              {metrics.memory.toFixed(1)}%
+        {/* Memory Card */}
+        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+            <CardTitle className="text-sm font-semibold text-slate-700">Memory</CardTitle>
+            <div className="p-3 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <MemoryStick className="h-5 w-5 text-emerald-700" />
             </div>
-            <div className="w-full bg-gray-200 rounded-sm h-2">
+          </CardHeader>
+          <CardContent className="relative z-10">
+            <div className="text-3xl font-bold text-emerald-700 mb-4">
+              {realTimeData.memory.toFixed(1)}%
+            </div>
+            <div className="w-full bg-slate-200/70 rounded-full h-2.5 mb-4 overflow-hidden">
               <div 
-                className="bg-gray-700 h-2 rounded-sm transition-all duration-300"
-                style={{ width: `${metrics.memory}%` }}
+                className="bg-gradient-to-r from-emerald-500 to-emerald-600 h-2.5 rounded-full transition-all duration-1000 ease-out shadow-sm"
+                style={{ width: `${realTimeData.memory}%` }}
               />
             </div>
-            <p className="text-xs text-gray-500 mt-2">8.2GB of 12GB used</p>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-600 flex items-center">
+                <Shield className="h-3 w-3 mr-1 text-emerald-600" />
+                8.6GB
+              </span>
+              <span className="text-slate-500 font-medium">12.6GB</span>
+            </div>
           </CardContent>
         </Card>
 
-        {/* Network Throughput */}
-        <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-600">Network</CardTitle>
-            <Network className="h-4 w-4 text-gray-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-semibold text-gray-900 mb-2">
-              {metrics.network.toFixed(0)} Mbps
+        {/* Network Card */}
+        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+            <CardTitle className="text-sm font-semibold text-slate-700">Network</CardTitle>
+            <div className="p-3 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <Wifi className="h-5 w-5 text-purple-700" />
             </div>
-            <p className="text-xs text-gray-500">
-              {metrics.activeConnections} active connections
-            </p>
+          </CardHeader>
+          <CardContent className="relative z-10">
+            <div className="text-3xl font-bold text-purple-700 mb-4">
+              {realTimeData.network.toFixed(0)} Mbps
+            </div>
+            <div className="flex justify-between text-sm text-slate-600 mb-3">
+              <span className="flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+                ↑ {(realTimeData.network * 0.6).toFixed(0)}
+              </span>
+              <span className="flex items-center">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mr-1"></div>
+                ↓ {(realTimeData.network * 0.8).toFixed(0)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-600 flex items-center">
+                <Activity className="h-3 w-3 mr-1 text-purple-600" />
+                {realTimeData.activeConnections}
+              </span>
+              <span className="text-slate-500 font-medium">Active</span>
+            </div>
           </CardContent>
         </Card>
 
-        {/* System Health */}
-        <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-gray-600">Uptime</CardTitle>
-            <Activity className="h-4 w-4 text-gray-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-semibold text-gray-900 mb-2">
-              {metrics.uptime}
+        {/* System Health Card */}
+        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+            <CardTitle className="text-sm font-semibold text-slate-700">System Health</CardTitle>
+            <div className="p-3 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <Server className="h-5 w-5 text-orange-700" />
             </div>
-            <p className="text-xs text-gray-500">
-              {metrics.alerts} active alerts
-            </p>
+          </CardHeader>
+          <CardContent className="relative z-10">
+            <div className="text-3xl font-bold text-orange-700 mb-4">
+              98.7%
+            </div>
+            <div className="space-y-2 mb-3">
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600">Uptime</span>
+                <span className="font-semibold text-emerald-600">99.99%</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600">Response</span>
+                <span className="font-semibold text-blue-600">&lt;50ms</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-600 flex items-center">
+                <AlertTriangle className="h-3 w-3 mr-1 text-orange-600" />
+                {realTimeData.alerts}
+              </span>
+              <span className="text-slate-500 font-medium">Alerts</span>
+            </div>
           </CardContent>
         </Card>
       </div>
 
       {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* CPU Usage Chart */}
-        <Card className="border border-gray-200 shadow-sm">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* CPU Trends Chart */}
+        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-lg font-medium text-gray-900">CPU Usage (24h)</CardTitle>
-            <CardDescription className="text-gray-500">Historical CPU utilization</CardDescription>
+            <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
+              <Cpu className="h-6 w-6 mr-3 text-blue-600" />
+              CPU Performance
+            </CardTitle>
+            <CardDescription className="text-slate-600">24-hour utilization trends</CardDescription>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={cpuData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
-                <XAxis 
-                  dataKey="time" 
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                  stroke="#6b7280"
-                />
-                <YAxis 
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                  stroke="#6b7280"
-                />
+                <defs>
+                  <linearGradient id="cpuGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.05}/>
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                <XAxis dataKey="time" stroke="#64748b" fontSize={12} />
+                <YAxis stroke="#64748b" fontSize={12} />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '6px',
-                    fontSize: '12px'
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    border: 'none', 
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
+                    backdropFilter: 'blur(10px)'
                   }} 
                 />
                 <Area 
                   type="monotone" 
                   dataKey="usage" 
-                  stroke="#374151" 
-                  fill="#9ca3af" 
-                  fillOpacity={0.2}
-                  strokeWidth={2}
+                  stroke="#3b82f6" 
+                  fill="url(#cpuGradient)" 
+                  strokeWidth={3}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -245,49 +316,42 @@ export default function Dashboard() {
         </Card>
 
         {/* Memory Usage Chart */}
-        <Card className="border border-gray-200 shadow-sm">
+        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-lg font-medium text-gray-900">Memory Usage (24h)</CardTitle>
-            <CardDescription className="text-gray-500">RAM utilization over time</CardDescription>
+            <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
+              <MemoryStick className="h-6 w-6 mr-3 text-emerald-600" />
+              Memory Allocation
+            </CardTitle>
+            <CardDescription className="text-slate-600">Memory usage distribution</CardDescription>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={memoryData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
-                <XAxis 
-                  dataKey="time" 
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                  stroke="#6b7280"
-                />
-                <YAxis 
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                  stroke="#6b7280"
-                />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                <XAxis dataKey="time" stroke="#64748b" fontSize={12} />
+                <YAxis stroke="#64748b" fontSize={12} />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '6px',
-                    fontSize: '12px'
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    border: 'none', 
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
+                    backdropFilter: 'blur(10px)'
                   }} 
                 />
                 <Area 
                   type="monotone" 
                   dataKey="used" 
                   stackId="1"
-                  stroke="#4b5563" 
-                  fill="#6b7280" 
-                  fillOpacity={0.8}
+                  stroke="#10b981" 
+                  fill="#10b981" 
+                  fillOpacity={0.6}
                 />
                 <Area 
                   type="monotone" 
                   dataKey="available" 
                   stackId="1"
-                  stroke="#d1d5db" 
+                  stroke="#e5e7eb" 
                   fill="#e5e7eb" 
                   fillOpacity={0.8}
                 />
@@ -297,73 +361,57 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      {/* Network and System Health */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      {/* Bottom Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Network Traffic */}
-        <Card className="border border-gray-200 shadow-sm">
+        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-lg font-medium text-gray-900">Network Traffic</CardTitle>
-            <CardDescription className="text-gray-500">Inbound and outbound data flow</CardDescription>
+            <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
+              <Network className="h-6 w-6 mr-3 text-purple-600" />
+              Network Traffic
+            </CardTitle>
+            <CardDescription className="text-slate-600">Data flow patterns</CardDescription>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={networkData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
-                <XAxis 
-                  dataKey="time" 
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                  stroke="#6b7280"
-                />
-                <YAxis 
-                  fontSize={12}
-                  tickLine={false}
-                  axisLine={false}
-                  stroke="#6b7280"
-                />
+            <ResponsiveContainer width="100%" height={250}>
+              <BarChart data={networkData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                <XAxis dataKey="time" stroke="#64748b" fontSize={12} />
+                <YAxis stroke="#64748b" fontSize={12} />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '6px',
-                    fontSize: '12px'
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    border: 'none', 
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
+                    backdropFilter: 'blur(10px)'
                   }} 
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="inbound" 
-                  stroke="#374151" 
-                  strokeWidth={2}
-                  dot={false}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="outbound" 
-                  stroke="#6b7280" 
-                  strokeWidth={2}
-                  dot={false}
-                />
-              </LineChart>
+                <Bar dataKey="inbound" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="outbound" fill="#06b6d4" radius={[4, 4, 0, 0]} />
+              </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
         {/* System Health Distribution */}
-        <Card className="border border-gray-200 shadow-sm">
+        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
           <CardHeader>
-            <CardTitle className="text-lg font-medium text-gray-900">System Health</CardTitle>
-            <CardDescription className="text-gray-500">Overall system status distribution</CardDescription>
+            <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
+              <CheckCircle className="h-6 w-6 mr-3 text-emerald-600" />
+              Health Status
+            </CardTitle>
+            <CardDescription className="text-slate-600">System status overview</CardDescription>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
                   data={systemHealthData}
                   cx="50%"
                   cy="50%"
                   innerRadius={60}
-                  outerRadius={120}
+                  outerRadius={100}
                   paddingAngle={2}
                   dataKey="value"
                 >
@@ -373,109 +421,68 @@ export default function Dashboard() {
                 </Pie>
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '6px',
-                    fontSize: '12px'
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                    border: 'none', 
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
+                    backdropFilter: 'blur(10px)'
                   }} 
                 />
+                <Legend />
               </PieChart>
             </ResponsiveContainer>
-            <div className="flex justify-center space-x-6 mt-4">
-              {systemHealthData.map((item, index) => (
-                <div key={index} className="flex items-center">
-                  <div 
-                    className="w-3 h-3 rounded-full mr-2" 
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <span className="text-xs text-gray-600">{item.name}: {item.value}%</span>
+          </CardContent>
+        </Card>
+
+        {/* Storage Analytics */}
+        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <CardHeader>
+            <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
+              <Database className="h-6 w-6 mr-3 text-indigo-600" />
+              Storage Usage
+            </CardTitle>
+            <CardDescription className="text-slate-600">Disk utilization breakdown</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {diskUsageData.map((disk, index) => (
+              <div key={index} className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm font-semibold text-slate-700">{disk.name}</span>
+                  <span className="text-sm text-slate-600 font-medium">
+                    {disk.used}GB / {disk.total}GB
+                  </span>
                 </div>
-              ))}
-            </div>
+                <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                  <div
+                    className="h-2.5 rounded-full transition-all duration-1000 ease-out shadow-sm"
+                    style={{ 
+                      width: `${(disk.used / disk.total) * 100}%`,
+                      backgroundColor: disk.color 
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-slate-500">
+                    {((disk.used / disk.total) * 100).toFixed(1)}% used
+                  </span>
+                  <span className="text-slate-500">
+                    {disk.total - disk.used}GB free
+                  </span>
+                </div>
+              </div>
+            ))}
           </CardContent>
         </Card>
       </div>
 
-      {/* Disk Usage */}
-      <Card className="border border-gray-200 shadow-sm">
-        <CardHeader>
-          <CardTitle className="text-lg font-medium text-gray-900">Storage Usage</CardTitle>
-          <CardDescription className="text-gray-500">Disk space utilization across volumes</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={diskUsageData} layout="horizontal">
-              <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
-              <XAxis 
-                type="number" 
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-                stroke="#6b7280"
-              />
-              <YAxis 
-                dataKey="name" 
-                type="category" 
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-                stroke="#6b7280"
-              />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: 'white', 
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '6px',
-                  fontSize: '12px'
-                }} 
-              />
-              <Bar 
-                dataKey="used" 
-                fill="#4b5563" 
-                radius={[0, 2, 2, 0]}
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
-
-      {/* System Information Footer */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="border border-gray-200 shadow-sm">
-          <CardContent className="pt-6">
-            <div className="flex items-center">
-              <Server className="h-8 w-8 text-gray-500 mr-3" />
-              <div>
-                <div className="font-medium text-gray-900">Server Instance</div>
-                <div className="text-sm text-gray-500">prod-server-01</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border border-gray-200 shadow-sm">
-          <CardContent className="pt-6">
-            <div className="flex items-center">
-              <HardDrive className="h-8 w-8 text-gray-500 mr-3" />
-              <div>
-                <div className="font-medium text-gray-900">Total Storage</div>
-                <div className="text-sm text-gray-500">1.2TB Available</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border border-gray-200 shadow-sm">
-          <CardContent className="pt-6">
-            <div className="flex items-center">
-              <TrendingUp className="h-8 w-8 text-gray-500 mr-3" />
-              <div>
-                <div className="font-medium text-gray-900">Performance</div>
-                <div className="text-sm text-gray-500">Optimal</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Floating Quick Actions */}
+      <div className="fixed bottom-8 right-8 flex flex-col space-y-3">
+        <button className="group bg-gradient-to-r from-slate-800 to-slate-900 text-white p-4 rounded-2xl shadow-2xl hover:shadow-slate-900/40 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+          <Zap className="h-6 w-6 group-hover:rotate-12 transition-transform" />
+        </button>
+        <button className="group bg-gradient-to-r from-emerald-600 to-blue-600 text-white p-4 rounded-2xl shadow-2xl hover:shadow-emerald-600/40 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+          <Activity className="h-6 w-6 group-hover:scale-110 transition-transform" />
+        </button>
       </div>
     </div>
   )
