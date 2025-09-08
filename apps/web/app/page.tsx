@@ -32,61 +32,44 @@ const METRICS_DATA = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-slate-50/50 via-transparent to-blue-50/30"></div>
+        <div className="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-indigo-100/40 to-purple-100/40 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-gradient-to-br from-blue-100/40 to-cyan-100/40 rounded-full blur-3xl"></div>
       </div>
-      {/* Ultra Modern Transparent Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5 transition-all duration-300">
+      {/* Clean Modern Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3 group">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:shadow-indigo-500/50 transition-all duration-300 group-hover:scale-110">
-                  <span className="text-white font-bold text-xl group-hover:scale-110 transition-transform">G</span>
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 animate-pulse"></div>
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">G</span>
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent group-hover:from-indigo-600 group-hover:to-purple-600 transition-all duration-300">GlobalMonitoring</span>
-                <span className="text-xs text-gray-500 font-medium group-hover:text-indigo-500 transition-colors">Real-time System Intelligence</span>
+              <div>
+                <span className="text-xl font-bold text-slate-900">GlobalMonitoring</span>
               </div>
             </div>
             
-            <div className="hidden md:flex items-center space-x-1">
-              <a href="#features" className="relative px-4 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
-                <span className="relative z-10">Features</span>
-                <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-slate-600 hover:text-slate-900 font-medium transition-colors">
+                Features
               </a>
-              <a href="#monitoring" className="relative px-4 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
-                <span className="relative z-10">Monitoring</span>
-                <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <a href="#monitoring" className="text-slate-600 hover:text-slate-900 font-medium transition-colors">
+                Monitoring
               </a>
-              <a href="#analytics" className="relative px-4 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
-                <span className="relative z-10">Analytics</span>
-                <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <a href="#analytics" className="text-slate-600 hover:text-slate-900 font-medium transition-colors">
+                Analytics
               </a>
-              <a href="#docs" className="relative px-4 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
-                <span className="relative z-10">Docs</span>
-                <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <a href="#docs" className="text-slate-600 hover:text-slate-900 font-medium transition-colors">
+                Docs
               </a>
-              <div className="w-px h-6 bg-gradient-to-b from-transparent via-gray-300 to-transparent mx-2"></div>
-              <a href="/signin" className="relative px-3 py-2 text-gray-700 hover:text-indigo-600 rounded-lg transition-all duration-300 font-medium group">
-                <span className="relative z-10">Sign In</span>
-                <div className="absolute inset-0 bg-white/50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <a href="/signin" className="text-slate-600 hover:text-slate-900 font-medium transition-colors">
+                Sign In
               </a>
-              <a href="/signup" className="relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/40 group overflow-hidden">
-                <span className="relative z-10 flex items-center">
-                  Start Monitoring
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <a href="/signup" className="bg-slate-900 text-white px-6 py-2 rounded-lg font-medium hover:bg-slate-800 transition-colors">
+                Get Started
               </a>
             </div>
 
@@ -105,92 +88,49 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto relative">
-            {/* Floating Elements */}
-            <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-bounce delay-1000"></div>
-            <div className="absolute -top-5 -right-5 w-16 h-16 bg-gradient-to-br from-pink-400/20 to-red-400/20 rounded-full blur-xl animate-bounce delay-2000"></div>
-            
-            <div className="relative inline-flex items-center bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200/50 rounded-full px-6 py-3 mb-8 shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-300 group">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse shadow-lg shadow-green-500/50"></div>
-              <span className="text-sm font-semibold text-indigo-700 group-hover:text-indigo-800 transition-colors">Real-time System Monitoring • Live Dashboard</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-100/50 to-purple-100/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center bg-slate-100 rounded-full px-4 py-2 mb-8">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+              <span className="text-sm font-medium text-slate-700">Real-time System Monitoring</span>
             </div>
             
-            <h1 className="text-6xl lg:text-8xl font-bold mb-8 leading-tight relative">
-              <span className="inline-block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 transition-all duration-500 transform hover:scale-105">Monitor Your</span>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-slate-900">
+              Monitor Your Infrastructure
               <br />
-              <span className="inline-block bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent hover:from-indigo-500 hover:via-purple-500 hover:to-blue-500 transition-all duration-500 transform hover:scale-105 animate-pulse">Infrastructure</span>
-              <br />
-              <span className="inline-block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent hover:from-gray-700 hover:via-gray-600 hover:to-gray-700 transition-all duration-500 transform hover:scale-105">Like Never Before</span>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50"></div>
-              <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50"></div>
+              <span className="text-slate-600">Like Never Before</span>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-3xl mx-auto">
               Advanced real-time monitoring for CPU, memory, network traces, and system vitals. 
-              Get instant insights with our sophisticated analytics platform that scales with your infrastructure.
+              Get instant insights with our analytics platform.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <a href="/signup" className="group relative bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-xl shadow-indigo-500/30 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-indigo-500/50 min-w-[220px] overflow-hidden">
-                <span className="relative z-10 flex items-center justify-center">
-                  Start Free Trial
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 via-purple-700 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+              <a href="/signup" className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors">
+                Start Free Trial
               </a>
-              <a href="/dashboard" className="group relative bg-white/90 backdrop-blur-sm text-gray-800 px-10 py-5 rounded-2xl font-semibold text-lg border border-gray-200/50 shadow-lg transition-all duration-500 hover:scale-110 hover:shadow-xl hover:bg-white min-w-[220px] overflow-hidden">
-                <span className="relative z-10 flex items-center justify-center group-hover:text-indigo-600 transition-colors">
-                  <svg className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  View Live Demo
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <a href="/dashboard" className="bg-white text-slate-900 px-8 py-3 rounded-lg font-semibold border border-slate-200 hover:bg-slate-50 transition-colors">
+                View Demo
               </a>
             </div>
 
-            {/* Enhanced Floating Stats Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto relative">
-              {/* Connecting lines */}
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-300/50 to-transparent hidden lg:block"></div>
-              
-              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-xl"></div>
-                <div className="relative z-10">
-                  <div className="text-4xl font-bold text-indigo-600 mb-3 group-hover:scale-110 transition-transform duration-300">99.9%</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">Uptime SLA</div>
-                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">⚡</div>
-                </div>
+            {/* Stats Cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-200 text-center">
+                <div className="text-3xl font-bold text-slate-900 mb-2">99.9%</div>
+                <div className="text-sm text-slate-600">Uptime SLA</div>
               </div>
-              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-xl"></div>
-                <div className="relative z-10">
-                  <div className="text-4xl font-bold text-purple-600 mb-3 group-hover:scale-110 transition-transform duration-300">&lt;50ms</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-purple-600 transition-colors">Response Time</div>
-                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🚀</div>
-                </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-200 text-center">
+                <div className="text-3xl font-bold text-slate-900 mb-2">&lt;50ms</div>
+                <div className="text-sm text-slate-600">Response Time</div>
               </div>
-              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-xl"></div>
-                <div className="relative z-10">
-                  <div className="text-4xl font-bold text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-blue-600 transition-colors">Monitoring</div>
-                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🔍</div>
-                </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-200 text-center">
+                <div className="text-3xl font-bold text-slate-900 mb-2">24/7</div>
+                <div className="text-sm text-slate-600">Monitoring</div>
               </div>
-              <div className="group bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:scale-110 hover:bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full blur-xl"></div>
-                <div className="relative z-10">
-                  <div className="text-4xl font-bold text-green-600 mb-3 group-hover:scale-110 transition-transform duration-300">1M+</div>
-                  <div className="text-sm text-gray-600 font-medium group-hover:text-green-600 transition-colors">Metrics/sec</div>
-                  <div className="absolute -bottom-2 -right-2 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">📊</div>
-                </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-200 text-center">
+                <div className="text-3xl font-bold text-slate-900 mb-2">1M+</div>
+                <div className="text-sm text-slate-600">Metrics/sec</div>
               </div>
             </div>
           </div>

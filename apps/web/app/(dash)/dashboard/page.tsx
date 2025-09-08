@@ -105,20 +105,20 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50/50 to-blue-50/30 p-6 space-y-8">
+    <div className="min-h-screen bg-slate-50 p-6 space-y-8">
       {/* Premium Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <div className="relative group">
-            <div className="w-14 h-14 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 rounded-2xl flex items-center justify-center shadow-2xl shadow-slate-900/25 group-hover:shadow-slate-900/40 transition-all duration-300">
+            <div className="w-14 h-14 bg-slate-900 rounded-lg flex items-center justify-center shadow-sm">
               <Activity className="h-7 w-7 text-white" />
             </div>
             <div className="absolute -top-1 -right-1 w-5 h-5 bg-emerald-400 rounded-full border-2 border-white shadow-lg">
-              <div className="w-full h-full bg-emerald-400 rounded-full animate-ping"></div>
+              <div className="w-full h-full bg-emerald-400 rounded-full"></div>
             </div>
           </div>
           <div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold text-slate-900">
               System Monitor
             </h1>
             <p className="text-slate-600 text-lg flex items-center mt-1">
@@ -129,12 +129,12 @@ export default function Dashboard() {
         </div>
         
         <div className="flex items-center space-x-6">
-          <div className="flex items-center bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200/60 text-emerald-800 px-6 py-3 rounded-2xl shadow-lg backdrop-blur-sm">
+          <div className="flex items-center bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-3 rounded-lg shadow-sm">
             <CheckCircle className="h-5 w-5 mr-2" />
             <span className="font-semibold">All Systems Healthy</span>
           </div>
           
-          <div className="text-right bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl border border-slate-200/60 shadow-lg">
+          <div className="text-right bg-white px-6 py-3 rounded-lg border border-slate-200 shadow-sm">
             <div className="text-sm text-slate-500 flex items-center justify-end">
               <Clock className="h-4 w-4 mr-1" />
               Last Updated
@@ -147,21 +147,20 @@ export default function Dashboard() {
       {/* Premium Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* CPU Card */}
-        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+        <Card className="bg-white border border-slate-200 shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
             <CardTitle className="text-sm font-semibold text-slate-700">CPU Usage</CardTitle>
-            <div className="p-3 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="p-3 bg-blue-100 rounded-lg shadow-sm">
               <Cpu className="h-5 w-5 text-blue-700" />
             </div>
           </CardHeader>
-          <CardContent className="relative z-10">
+          <CardContent>
             <div className="text-3xl font-bold text-blue-700 mb-4">
               {realTimeData.cpu.toFixed(1)}%
             </div>
             <div className="w-full bg-slate-200/70 rounded-full h-2.5 mb-4 overflow-hidden">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full transition-all duration-1000 ease-out shadow-sm"
+                className="bg-blue-500 h-2.5 rounded-full"
                 style={{ width: `${realTimeData.cpu}%` }}
               />
             </div>
@@ -176,15 +175,14 @@ export default function Dashboard() {
         </Card>
 
         {/* Memory Card */}
-        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+        <Card className="bg-white border border-slate-200 shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
             <CardTitle className="text-sm font-semibold text-slate-700">Memory</CardTitle>
-            <div className="p-3 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="p-3 bg-emerald-100 rounded-lg shadow-sm">
               <MemoryStick className="h-5 w-5 text-emerald-700" />
             </div>
           </CardHeader>
-          <CardContent className="relative z-10">
+          <CardContent>
             <div className="text-3xl font-bold text-emerald-700 mb-4">
               {realTimeData.memory.toFixed(1)}%
             </div>
@@ -205,15 +203,14 @@ export default function Dashboard() {
         </Card>
 
         {/* Network Card */}
-        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+        <Card className="bg-white border border-slate-200 shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
             <CardTitle className="text-sm font-semibold text-slate-700">Network</CardTitle>
-            <div className="p-3 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="p-3 bg-purple-100 rounded-lg shadow-sm">
               <Wifi className="h-5 w-5 text-purple-700" />
             </div>
           </CardHeader>
-          <CardContent className="relative z-10">
+          <CardContent>
             <div className="text-3xl font-bold text-purple-700 mb-4">
               {realTimeData.network.toFixed(0)} Mbps
             </div>
@@ -238,15 +235,14 @@ export default function Dashboard() {
         </Card>
 
         {/* System Health Card */}
-        <Card className="group relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 relative z-10">
+        <Card className="bg-white border border-slate-200 shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
             <CardTitle className="text-sm font-semibold text-slate-700">System Health</CardTitle>
-            <div className="p-3 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="p-3 bg-orange-100 rounded-lg shadow-sm">
               <Server className="h-5 w-5 text-orange-700" />
             </div>
           </CardHeader>
-          <CardContent className="relative z-10">
+          <CardContent>
             <div className="text-3xl font-bold text-orange-700 mb-4">
               98.7%
             </div>
@@ -274,7 +270,7 @@ export default function Dashboard() {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* CPU Trends Chart */}
-        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className="bg-white border border-slate-200 shadow-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
               <Cpu className="h-6 w-6 mr-3 text-blue-600" />
@@ -316,7 +312,7 @@ export default function Dashboard() {
         </Card>
 
         {/* Memory Usage Chart */}
-        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className="bg-white border border-slate-200 shadow-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
               <MemoryStick className="h-6 w-6 mr-3 text-emerald-600" />
@@ -364,7 +360,7 @@ export default function Dashboard() {
       {/* Bottom Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Network Traffic */}
-        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className="bg-white border border-slate-200 shadow-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
               <Network className="h-6 w-6 mr-3 text-purple-600" />
@@ -395,7 +391,7 @@ export default function Dashboard() {
         </Card>
 
         {/* System Health Distribution */}
-        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className="bg-white border border-slate-200 shadow-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
               <CheckCircle className="h-6 w-6 mr-3 text-emerald-600" />
@@ -435,7 +431,7 @@ export default function Dashboard() {
         </Card>
 
         {/* Storage Analytics */}
-        <Card className="bg-white/80 backdrop-blur-sm border border-slate-200/60 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <Card className="bg-white border border-slate-200 shadow-sm">
           <CardHeader>
             <CardTitle className="flex items-center text-xl font-semibold text-slate-800">
               <Database className="h-6 w-6 mr-3 text-indigo-600" />
@@ -477,11 +473,11 @@ export default function Dashboard() {
 
       {/* Floating Quick Actions */}
       <div className="fixed bottom-8 right-8 flex flex-col space-y-3">
-        <button className="group bg-gradient-to-r from-slate-800 to-slate-900 text-white p-4 rounded-2xl shadow-2xl hover:shadow-slate-900/40 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-          <Zap className="h-6 w-6 group-hover:rotate-12 transition-transform" />
+        <button className="bg-slate-900 text-white p-4 rounded-lg shadow-sm hover:bg-slate-800 transition-colors">
+          <Zap className="h-6 w-6" />
         </button>
-        <button className="group bg-gradient-to-r from-emerald-600 to-blue-600 text-white p-4 rounded-2xl shadow-2xl hover:shadow-emerald-600/40 transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-          <Activity className="h-6 w-6 group-hover:scale-110 transition-transform" />
+        <button className="bg-emerald-600 text-white p-4 rounded-lg shadow-sm hover:bg-emerald-700 transition-colors">
+          <Activity className="h-6 w-6" />
         </button>
       </div>
     </div>
