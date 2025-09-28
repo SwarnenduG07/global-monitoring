@@ -1,32 +1,16 @@
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "../../lib/utils"
-
-const cardVariants = cva(
-  "rounded-xl border bg-card text-card-foreground shadow",
-  {
-    variants: {
-      variant: {
-        default: "border-border bg-white/60 backdrop-blur-xl",
-        outline: "border-2 border-border bg-transparent",
-        glass: "bg-white/10 backdrop-blur-2xl border-white/20",
-        gradient: "bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-xl border-white/30",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>
->(({ className, variant, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(cardVariants({ variant, className }))}
+    className={cn(
+      "rounded-xl border border-gray-200 bg-white text-gray-950 shadow-sm",
+      className
+    )}
     {...props}
   />
 ))
@@ -36,11 +20,7 @@ const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
 ))
 CardHeader.displayName = "CardHeader"
 
@@ -60,11 +40,7 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
+  <p ref={ref} className={cn("text-sm text-gray-500", className)} {...props} />
 ))
 CardDescription.displayName = "CardDescription"
 
@@ -80,11 +56,7 @@ const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
 ))
 CardFooter.displayName = "CardFooter"
 
